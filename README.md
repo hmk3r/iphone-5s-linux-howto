@@ -69,7 +69,7 @@ The ramdisk we loaded allows us to netboot a proper linux distro image. A good c
     telnet 172.16.42.1
     > pmos_continue_boot
     ```
-5. You should see a "waiting for netboot" message on the iphone now. We can use `pmbootstrap` to serve the image:
+5. You should see a "waiting for netboot" message on the iphone now. We can use `pmbootstrap` to serve the image. **Run the following command in a new terminal and keep it open**:
    ```
    pmbootstrap netboot serve
    ```
