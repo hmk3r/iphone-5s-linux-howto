@@ -87,8 +87,7 @@ The ramdisk we loaded allows us to netboot a proper linux distro image. A good c
     ```
 7. The last step is to start the GUI. Take note of the tty displayed on the iPhone's screen (should be `tty1`). Connect to this tty using `script` and start the xfce4 session. If it fails with an I/O error, start this README from the beginning.
     ```
-    script -f /dev/tty1
+    sudo script -f /dev/tty1
     startxfce4
     ```
-8. Leave the ssh session open and start onother one. In it, you can `export DISPLAY=:0`, and start launching GUI apps.
-    - **NOTE**: Currently most programs are broken(bus error/IO error etc.) To be fixed soon&trade;
+8. Leave this ssh session open and start another one. In it, you can `export DISPLAY=:0`, and start launching GUI apps
