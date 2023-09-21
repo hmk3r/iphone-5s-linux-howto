@@ -22,7 +22,7 @@ PostmarketOS' development tool [pmbootstrap](https://wiki.postmarketos.org/wiki/
     NOTE: There are multiple options for the PongoOS image:
     - [Pongo.bin](./resources/Pongo.bin) - The default PongoOS image, capable of booting Linux. SMC calls cause hangs.
     - [Pongo-Empty-EL3.bin)](./resources/Pongo-Empty-EL3.bin) - PongoOS image with the ARM Exception Vector empty(`eret` in all 16 entries). SMC calls don't crash it, and don't do anything. Comes with the `el3_smc_call` command to test the non-crashing behaviour in `pongoterm`.
-    - [Pongo-EL3-fibonacci.bin](./resources/Pongo-EL3-fibonacci.bin) PongoOS with a basic EL3 runtime that computes a fibonacci number. Register saving and restoring on EL3 entry/exit work. Comes with the `el3_fib [number]` command to test this in `pongoterm`. The Fibonacci EL3 service can be used in Linux through the [el3_demo_fib](https://gitlab.inf.ethz.ch/PRV-SHINDE/theses/ma-theses/ma-2022/221114_lyubomir_kyorovski/iphone-5s/lkm-el3-fib-svc) kernel module (See [this section](#el3-fibonacci-service-lkm))
+    - [Pongo-EL3-fibonacci.bin](./resources/Pongo-EL3-fibonacci.bin) PongoOS with a basic EL3 runtime that computes a fibonacci number. Register saving and restoring on EL3 entry/exit work. Comes with the `el3_fib [number]` command to test this in `pongoterm`. The Fibonacci EL3 service can be used in Linux through the [el3_demo_fib](https://github.com/hmk3r/lkm-5s-el3-fibonacci/) kernel module (See [this section](#el3-fibonacci-service-lkm))
 3. When you get to "Right before trigger":
    1. Wait 3 seconds (or count to 3)
    2. Unplug iPhone
@@ -32,7 +32,7 @@ PostmarketOS' development tool [pmbootstrap](https://wiki.postmarketos.org/wiki/
         - if it doesn't - keep re-plugging until it does
         - if booting to PongoOS fails outright and the iPhone boots normally, restart the whole jailbreak procedure
 4. With any luck, you should be now in PongoOS
-   - You can poke around it with `pongoterm` which you can compile from [here](https://gitlab.inf.ethz.ch/PRV-SHINDE/theses/ma-theses/ma-2022/221114_lyubomir_kyorovski/iphone-5s/pongoos-5s/-/tree/master/scripts)
+   - You can poke around it with `pongoterm` which you can compile from [here](https://github.com/hmk3r/pongoOS-5s-trusted-firmware/tree/master/scripts)
 
 ## Booting the Linux kernel and into an initramfs
 
@@ -153,4 +153,4 @@ cat /proc/el3_fib_svc
 rmmod el3_demo_fib
 ```
 
-For more info, about the output, etc. view [the module's README](https://gitlab.inf.ethz.ch/PRV-SHINDE/theses/ma-theses/ma-2022/221114_lyubomir_kyorovski/iphone-5s/lkm-el3-fib-svc/-/blob/master/README.md)
+For more info, about the output, etc. view [the module's README](https://github.com/hmk3r/lkm-5s-el3-fibonacci/blob/master/README.md)
